@@ -1,0 +1,19 @@
+.coconut {
+background-color: #gray;
+grid-column-start: contentCol;
+justify-self: center;
+width: 80%;
+min-width: 400px;
+text-align: center;
+font-size: 1.3em;
+
+display: grid;
+grid-template-columns: 1fr;
+}
+
+.words {
+  color: green;
+  font-size: 1.4em;
+  text-align: left;
+
+}
