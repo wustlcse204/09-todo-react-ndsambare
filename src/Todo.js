@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import './App.css';
+import './Todo.css';
 
-class App extends Component {
+class Todo extends Component {
+
+
   render() {
     return (
-      <div className="App">
+      <div className="Todo">
         <h1>ToDo App</h1>
       </div>
     );
   }
 }
 
-export default App;
+export default Todo;
