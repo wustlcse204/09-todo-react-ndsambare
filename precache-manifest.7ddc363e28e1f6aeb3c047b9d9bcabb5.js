@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "a1370a6ea9eae1578297",
+    "revision": "010fd6ad83ef1e80e574",
     "url": "/09-todo-react-ndsambare/static/css/main.d39c4d17.chunk.css"
   },
   {
-    "revision": "a1370a6ea9eae1578297",
-    "url": "/09-todo-react-ndsambare/static/js/main.a1370a6e.chunk.js"
+    "revision": "010fd6ad83ef1e80e574",
+    "url": "/09-todo-react-ndsambare/static/js/main.010fd6ad.chunk.js"
   },
   {
     "revision": "15e835e576bfc1d254b2",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/09-todo-react-ndsambare/static/js/runtime~main.5690398f.js"
   },
   {
-    "revision": "2d7a08c51253cbd5a8c7f38c11d47e04",
+    "revision": "3f3b248a7c765c63767990e594215bb5",
     "url": "/09-todo-react-ndsambare/index.html"
   }
 ];
