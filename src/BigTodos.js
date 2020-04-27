@@ -11,7 +11,6 @@ class BigTodos extends Component {
   }
 
   render() {
-
     return this.props.todos.map((todo) => (
       <TodoItem markComplete = {this.props.markComplete} delTodo = {this.props.delTodo} key = {todo.id} todo = {todo}/>
 

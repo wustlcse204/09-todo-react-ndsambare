@@ -12,54 +12,97 @@ class App extends Component {
   state = {
     todos: [
 
-    ]
+    ],
+    sortOrNot: true
   }
 
   addTodo = (title) => {
-    const newTodo = {
-      id: Math.random() * 10000000000000000000,
-      title,
-      completed: false
-    }
-    this.setState({todos: [...this.state.todos, newTodo]})
+    // const newTodo = {
+    //   id: Math.random() * 10000000000000000000,
+    //   title,
+    //   completed: false
+    // }
+    fetch("https://cse204.work/todos", {
+      method: 'post',
+      headers: new Headers({"Content-type": "application/json", "x-api-key": "cd679f-1a5c76-c58d52-74735c-f21eac"}),
+      body: JSON.stringify({
+        "text": title
+      })
+    }).then(response => response.json()).then(big_data => {
+      this.setState({todos: [...this.state.todos, big_data]})
+      })
   }
 
 
 delTodo = (id) => {
   this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)]});
+  fetch("https://cse204.work/todos/" + id, {
+  method: 'delete',
+  headers: new Headers({"x-api-key": "cd679f-1a5c76-c58d52-74735c-f21eac"})
+})
 }
-
 
 
 markComplete = (id) => {
   this.setState({ todos: this.state.todos.map(todo => {
     if (todo.id === id) {
       todo.completed = !todo.completed
+      fetch("https://cse204.work/todos/" + id, {
+          method: 'put',
+          headers: new Headers({"x-api-key": "cd679f-1a5c76-c58d52-74735c-f21eac", "Content-type": "application/json"}),
+          body: JSON.stringify({
+            completed: todo.completed
+          })
+        })
     }
     return todo;
-  }) });
+  })});
 }
 
 
   render() {
-
     return (
-      <div class="content">
+      <div className="content">
          <div className = "container">
-
         <Header/>
-        <AddTodo addTodo = {this.addTodo}/>
+        <AddTodo  sortMyPuss = {this.sortAlphabet} addTodo = {this.addTodo}/>
         <BigTodos todos = {this.state.todos} markComplete = {this.markComplete} delTodo = {this.delTodo}/>
         </div>
-
       </div>
-
-
-
     );
   }
 
+  componentDidMount() {
+    fetch("https://cse204.work/todos", {
+      method: 'get',
+      headers: new Headers({"x-api-key": "cd679f-1a5c76-c58d52-74735c-f21eac"})
+    }).then(coco => {
+      return coco.json();
+    }).then(big_data => {
+      this.setState({todos : big_data})
+    })
+  }
+
+
 
 }
+
+// sortComplete = () => {
+//
+//
+//
+//       let sortArray = [...this.state.todos] => {
+//       if (todo.completed) {
+//         //move to bottom of list
+//
+//       }
+//
+//       this.setState({
+//         todos: sortArray
+//       })
+//     }
+
+//}
+
 
 export default App;

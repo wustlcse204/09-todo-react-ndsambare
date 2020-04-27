@@ -26,15 +26,14 @@ getStyle = () => {
 }
 
   render() {
-const {id, title } = this.props.todo;
+const {id, text} = this.props.todo;
     return (
-
       <div className = "coconut" style = {this.getStyle()}>
-       <p className = "words">
-       <input type = "checkbox" onChange = {this.props.markComplete.bind(this, id)}/> {' '}
-       {title}
-<button onClick = {this.props.delTodo.bind(this, id)} style = {btnStyle}> X </button>
-        </p>
+          <p className = "words">
+          <input type = "checkbox" onChange = {this.props.markComplete.bind(this, id)}/>
+          {this.props.todo.text}
+          <button onClick = {this.props.delTodo.bind(this, id)} style = {btnStyle}> X </button>
+          </p>
       </div>
 
     )
