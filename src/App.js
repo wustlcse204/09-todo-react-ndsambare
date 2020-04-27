@@ -8,12 +8,13 @@ import AddTodo from './AddTodo';
 //used React Crash Course Tutorial Video to help explain some concepts of coding JSX Todo in  React: https://www.youtube.com/watch?v=sBws8MSXN7A
 //This video helped me learn react and the components that go into developing a ToDo app in react, some of the CSS styling and HTML structure was also used from this video tutorial
 
+
+//My Project sorts based on date created - puts most recent todos first after refreshing
 class App extends Component {
   state = {
     todos: [
 
     ],
-    sortOrNot: true
   }
 
   addTodo = (title) => {
@@ -59,13 +60,12 @@ markComplete = (id) => {
   })});
 }
 
-
   render() {
     return (
       <div className="content">
          <div className = "container">
         <Header/>
-        <AddTodo  sortMyPuss = {this.sortAlphabet} addTodo = {this.addTodo}/>
+        <AddTodo addTodo = {this.addTodo}/>
         <BigTodos todos = {this.state.todos} markComplete = {this.markComplete} delTodo = {this.delTodo}/>
         </div>
       </div>
@@ -82,27 +82,8 @@ markComplete = (id) => {
       this.setState({todos : big_data})
     })
   }
-
-
-
 }
 
-// sortComplete = () => {
-//
-//
-//
-//       let sortArray = [...this.state.todos] => {
-//       if (todo.completed) {
-//         //move to bottom of list
-//
-//       }
-//
-//       this.setState({
-//         todos: sortArray
-//       })
-//     }
-
-//}
 
 
 export default App;
